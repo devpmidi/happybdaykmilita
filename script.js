@@ -89,16 +89,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 10 baús válidos
     const chests = [
-        {row:1,col:5,riddle:"en qué año nació la mejor persona del mundo??", answer:"2002"},    // ok
-        {row:1,col:10,riddle:"cuántos años tiene Kmila hoy?", answer:"23"},                     // ok
-        {row:2,col:13,riddle:"cuál es la actriz favorita de Kmilita?", answer:"katie mcgrath"}, // ok
-        {row:3,col:6,riddle:"qué animal de compañía tiene Kmila?", answer:"conejo"},        // alterei de 7 para 6
-        {row:5,col:10,riddle:"cuál es la profesión de Kmila", answer:"profesora de inglés"}, // ok
-        {row:6,col:1,riddle:"en qué país vive Kmila", answer:"Perú"}, // ok
-        {row:7,col:12,riddle:"qué día de la semana nació Kmila?", answer:"viernes"},  // ok
-        {row:9,col:3,riddle:"quien es la persona fav de midi", answer:"yo"}, // ok
-        {row:10,col:6,riddle:"cuál es el hobby creativo favorito de Kmila?", answer:"crochet"}, // ok
-        {row:11,col:9,riddle:"Cuál es la cantante favorita que Kmila tiene en común con Midi?", answer:"Taylor Swift"}  // ok
+        {row:1,col:5,riddle:"en qué año nació la mejor persona del mundo??", answer:"2002"},   
+        {row:1,col:10,riddle:"cuántos años tiene Kmila hoy?", answer:"23"},                   
+        {row:2,col:13,riddle:"cuál es la actriz favorita de Kmilita?", answer:"katie mcgrath"}, 
+        {row:3,col:6,riddle:"qué animal de compañía tiene Kmila?", answer:"conejo"},      
+        {row:5,col:10,riddle:"cuál es la profesión de Kmila", answer:"profesora de inglés"},
+        {row:6,col:1,riddle:"en qué país vive Kmila", answer:"Perú"},
+        {row:7,col:12,riddle:"qué día de la semana nació Kmila?", answer:"viernes"}, 
+        {row:9,col:3,riddle:"quien es la persona fav de midi", answer:"yo"},
+        {row:10,col:6,riddle:"cuál es el hobby creativo favorito de Kmila?", answer:"crochet"}, 
+        {row:11,col:9,riddle:"Cuál es la cantante favorita que Kmila tiene en común con Midi?", answer:"Taylor Swift"} 
     ];
 
   // ======================
@@ -260,10 +260,10 @@ function startRewardSequence(){
 });
 
 function resizeCanvas(){
-  canvas.width = Math.min(window.innerWidth*0.9, 600); // 90% da tela ou 600px
-  canvas.height = canvas.width / maze[0].length * maze.length; // mantém proporção
+  canvas.width = Math.min(window.innerWidth*0.9, 600); 
+  canvas.height = canvas.width / maze[0].length * maze.length; 
   drawGame();
 }
 
 window.addEventListener('resize', resizeCanvas);
-resizeCanvas(); // chama ao iniciar
+resizeCanvas();
