@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --primary-pink: #ff69b4;
+  --light-pink: #ffc0cb;
+  --dark-pink: #c71585;
+  --solid-envelope-color: #8b0000;
+  --pixel-font: 'Press Start 2P', cursive;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto; /* permite rolar verticalmente */
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-pink);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: -moz-element();
+}
+
+body {
+  background-image: url('imagens/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.screen {
+  width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  display: none;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* BACKGROUND PIXEL */
+.pixel-background-sim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-pink);
+  opacity: 0.15;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--pixel-font);
+  font-size: 10px;
+}
+
+/* LOGIN */
+.login-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 5px solid var(--dark-pink);
+  border-radius: 15px;
+  box-shadow: 8px 8px 0px var(--dark-pink);
+  z-index: 1;
+}
+
+/* CARD FLIP */
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* SENHA */
+.password-box {
+  text-align: center;
+}
+.password-box h2 {
+  font-family: var(--pixel-font);
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--dark-pink);
+}
+.password-display {
+  min-height: 40px;
+  margin-bottom: 20px;
+  border: 3px solid var(--dark-pink);
+  padding: 5px 15px;
+  background-color: #eee;
+  font-size: 24px;
+  letter-spacing: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--pixel-font);
+  border-radius: 5px;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 180px;
+  margin: 0 auto 20px;
+}
+
+.keypad-button {
+  font-family: var(--pixel-font);
+  font-size: 16px;
+  padding: 15px 10px;
+  border: 3px solid var(--dark-pink);
+  background-color: var(--light-pink);
+  color: var(--dark-pink);
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px var(--dark-pink);
+  user-select: none;
+}
+
+.keypad-button:hover {
+  background-color: var(--primary-pink);
+  color: white;
+}
+.keypad-button:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+.keypad, .controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.keypad-button, .control-btn {
+  flex: 1 1 20%; /* cresce e encolhe com o container */
+  min-width: 40px; 
+  min-height: 40px;
+  font-size: 1rem;
+}
+#keys-count, #chests-count {
+  font-size: 1.2rem;
+}
+@media (max-width: 480px) {
+  #keys-count, #chests-count {
+    font-size: 1rem;
+  }
+}
+
+.action-button {
+  grid-column: span 3;
+  width: 100%;
+  margin-top: 10px;
+}
+.clear-btn {
+  background-color: #f0f0f0;
+}
+
+/* BOTÃO PIXEL */
+.pixel-button {
+  font-family: var(--pixel-font);
+  font-size: 14px;
+  padding: 15px 30px;
+  border: 4px solid var(--solid-envelope-color);
+  background-color: var(--primary-pink);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0px var(--solid-envelope-color);
+  margin-top: 20px;
+}
+.pixel-button:hover {
+  background-color: var(--dark-pink);
+}
+
+/* TRANSITION SCENE */
+.transition-scene {
+  text-align: center;
+  display: none;
+}
+.transition-scene.active-transition {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+.character-image {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  image-rendering: pixelated;
+}
+.message {
+  font-family: var(--pixel-font);
+  font-size: 16px;
+  color: var(--dark-pink);
+  animation: pulse 1s infinite alternate;
+}
+
+/* CARDS */
+.flip-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta a imagem ao tamanho do card sem distorcer */
+  border-radius: 10px;
+}
+
+/* LOGIN CONTAINER */
+.login-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Reduzi para caber melhor */
+  padding: 20px; /* Reduzi também */
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 5px solid var(--dark-pink);
+  border-radius: 15px;
+  box-shadow: 8px 8px 0px var(--dark-pink);
+  z-index: 1;
+  max-width: 90vw; /* Impede que ultrapasse a tela */
+  flex-wrap: wrap;  /* Faz o layout quebrar em telas menores */
+  justify-content: center;
+}
+
+/* CARD SCENE */
+.card-scene {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.envelope-container {
+  perspective: 1000px;
+  margin-bottom: 30px;
+}
+.envelope {
+  width: 300px;
+  height: 200px;
+  background-color: var(--solid-envelope-color);
+  border-radius: 5px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-pink);
+  padding: 20px;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  border: 3px solid var(--dark-pink);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.card-content h3 {
+  font-family: var(--pixel-font);
+  font-size: 14px;
+  margin-top: 0;
+}
+/* envelope.closed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 100px solid var(--solid-envelope-color);
+  transform-origin: top;
+  transition: transform 1s;
+  z-index: 2;
+} */
+.envelope.opened {
+  transform: rotateY(180deg);
+}
+.envelope.opened::before {
+  transform: rotateX(180deg);
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes pulse { from {transform: scale(1);} to {transform: scale(1.05);} }
+
+/* JOGO */
+#game-screen {
+  background-color: var(--light-pink);
+  min-height: 100vh;
+}
+.game-area-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.9);
+  border: 5px solid var(--dark-pink);
+  border-radius: 10px;
+  box-shadow: 8px 8px 0px var(--dark-pink);
+  z-index: 10;
+}
+.game-title {
+  font-family: var(--pixel-font);
+  font-size: 18px;
+  color: var(--dark-pink);
+  margin-bottom: 5px;
+}
+#maze-canvas {
+  width: 100%;
+  height: auto;
+  max-width: 600px; /* opcional, limita o tamanho máximo */
+  display: block;
+  margin: 0 auto; /* centraliza no mobile */
+}
+
+.game-info {
+  text-align: center;
+  font-family: var(--pixel-font);
+  font-size: 12px;
+  color: var(--dark-pink);
+}
+.game-info span {
+  color: var(--solid-envelope-color);
+  font-weight: bold;
+}
+
+/* CONTROLES */
+.movement-controls {
+  display: none;
+  margin-top: 15px;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width:650px){ .movement-controls{display:flex;} }
+.control-btn {
+  font-family: var(--pixel-font);
+  padding: 10px 15px;
+  border: 3px solid var(--dark-pink);
+  background-color: var(--primary-pink);
+  color:white;
+  cursor:pointer;
+  border-radius:5px;
+  box-shadow:2px 2px 0px var(--dark-pink);
+  user-select:none;
+  width:60px;
+  height:60px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.control-btn:active { box-shadow:none; transform:translate(2px,2px); }
+
+/* CHARADA */
+.riddle-box {
+  display:none;
+  padding:20px;
+  background-color:#fff;
+  border:3px solid var(--primary-pink);
+  border-radius:8px;
+  text-align:center;
+  font-family:sans-serif;
+  max-width:400px;
+  margin-top:15px;
+}
+.riddle-box h4 {
+  font-family: var(--pixel-font);
+  font-size:14px;
+  color: var(--solid-envelope-color);
+  margin-top:0;
+}
+#riddle-input {
+  padding:8px;
+  margin:10px 0;
+  width:80%;
+  border:2px solid var(--dark-pink);
+  border-radius:4px;
+}
+.small-btn { padding:8px 15px; font-size:10px; }
+
+#riddle-container {
+  max-height: 80vh;
+  overflow-y: auto; /* se o conteúdo for grande, permite scroll */
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>happy bday kmilita</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+<!-- TELA DE LOGIN -->
+<div id="login-screen" class="screen active">
+  <div class="pixel-background-sim">
+    <p>imagem</p>
+  </div>
+  <div class="login-container">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="imagens\card 1.png" alt="Card Frente">
+        </div>
+        <div class="flip-card-back">
+          <img src="imagens\card 2.png" alt="Card Verso">
+        </div>
+      </div>
+    </div>
+    <div class="password-box">
+      <h2>happy bday kmilita</h2>
+      <div id="password-display" class="password-display"></div>
+      <div class="keypad"></div>
+      <button id="enter-button" class="keypad-button action-button">ENTER</button>
+      <button id="clear-button" class="keypad-button action-button clear-btn">RESET</button>
+    </div>
+  </div>
+</div>
+
+<!-- TELA DO JOGO -->
+<div id="game-screen" class="screen">
+  <div class="game-area-container">
+    <h2 class="game-title">Gamezitoo</h2>
+    <p>Tempo: <span id="timer">0s</span></p>
+    <canvas id="maze-canvas" width="600" height="600"></canvas>
+    <div class="game-info">
+      <p>Chaves Coletadas: <span id="keys-count">0</span>/5</p>
+      <p>Baús Abertos: <span id="chests-count">0</span>/10</p>
+      <div class="movement-controls">
+        <button class="control-btn" data-move="up">⬆️</button>
+        <div>
+          <button class="control-btn" data-move="left">⬅️</button>
+          <button class="control-btn" data-move="right">➡️</button>
+        </div>
+        <button class="control-btn" data-move="down">⬇️</button>
+      </div>
+    </div>
+    <div id="riddle-container" class="riddle-box">
+      <h4>Secretoo!</h4>
+      <p id="riddle-text">Pregunta!</p>
+      <input type="text" id="riddle-input" placeholder="Digite a resposta secreta...">
+      <button id="submit-riddle-btn" class="pixel-button small-btn">Responder</button>
+    </div>
+  </div>
+</div>
+
+<!-- TELA DE RECOMPENSA -->
+<div id="reward-screen" class="screen">
+  <div id="transition-scene" class="transition-scene active-transition">
+    <img src="imagens\kmilita2.png" alt="Kmilita com a Carta" class="character-image">
+    <p class="message">¡Lo hiciste! ¡La recompensa es tuya!</p>
+  </div>
+  <div id="card-scene" class="card-scene">
+    <div class="envelope-container">
+      <div id="envelope" class="envelope closed">
+        <div class="card-content">
+          <img src="imagens/carta.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <button id="open-envelope-button" class="pixel-button">open</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
